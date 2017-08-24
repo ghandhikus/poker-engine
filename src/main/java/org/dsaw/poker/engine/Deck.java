@@ -62,7 +62,7 @@ public class Deck {
     /**
      * Shuffles the deck.
      */
-    public void shuffle() {
+    public Deck shuffle() {
         for (int oldIndex = 0; oldIndex < NO_OF_CARDS; oldIndex++) {
             int newIndex = random.nextInt(NO_OF_CARDS);
             Card tempCard = cards[oldIndex];
@@ -70,6 +70,21 @@ public class Deck {
             cards[newIndex] = tempCard;
         }
         nextCardIndex = 0;
+        return this;
+    }
+    
+    /**
+     * Shuffles the deck.
+     */
+    public Deck shuffle(Random random) {
+        for (int oldIndex = 0; oldIndex < NO_OF_CARDS; oldIndex++) {
+            int newIndex = random.nextInt(NO_OF_CARDS);
+            Card tempCard = cards[oldIndex];
+            cards[oldIndex] = cards[newIndex];
+            cards[newIndex] = tempCard;
+        }
+        nextCardIndex = 0;
+        return this;
     }
     
     /**
